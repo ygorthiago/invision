@@ -12,7 +12,7 @@ export const FormContainer = styled.main`
   h1 {
     align-self: flex-end;
     margin-bottom: 20px;
-    font-family: 'Lato', sans-serif;
+    font-weight: 700;
     font-size: 35px;
   }
 
@@ -127,6 +127,7 @@ export const FormContainer = styled.main`
 
     h1 {
       margin-bottom: 73px;
+      margin-right: 10%;
       font-size: 35px;
     }
 
