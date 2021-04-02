@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { SliderData } from './SliderData';
 import {
   SliderContainer,
@@ -8,14 +8,9 @@ import {
 } from './styles';
 
 function Slider() {
-  const [currentImageIndex, setcurrentImageIndex] = useState(0);
-  const sliderNavigation = [];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  for (let i = 0; i < SliderData.length; i + 1) {
-    sliderNavigation.push(i);
-  }
-
-  const timeoutRef = React.useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout>();
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -23,11 +18,11 @@ function Slider() {
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     resetTimeout();
     timeoutRef.current = setTimeout(
       () =>
-        setcurrentImageIndex(prevIndex =>
+        setCurrentImageIndex(prevIndex =>
           prevIndex === SliderData.length - 1 ? 0 : prevIndex + 1,
         ),
       3 * 1000,
@@ -58,13 +53,13 @@ function Slider() {
         );
       })}
       <SliderNavigationContainer>
-        {sliderNavigation.map(index => {
+        {SliderData.map((slider, index) => {
           return (
             <SliderNavigation
-              key={index}
+              key={slider.imageTitle}
               isSelected={index === currentImageIndex}
               onClick={() => {
-                setcurrentImageIndex(index);
+                setCurrentImageIndex(index);
               }}
             />
           );
