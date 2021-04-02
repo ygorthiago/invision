@@ -1,4 +1,5 @@
 import React from 'react';
+import Slider from '../Slider';
 import { SignInContainer, BannersContainer } from './style';
 
 interface IAuthContainer {
@@ -8,7 +9,9 @@ interface IAuthContainer {
 function AuthContainer({ children }: IAuthContainer) {
   return (
     <SignInContainer>
-      <BannersContainer />
+      <BannersContainer>
+        <Slider />
+      </BannersContainer>
       {children}
     </SignInContainer>
   );

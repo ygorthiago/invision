@@ -16,7 +16,7 @@ export const SignInContainer = styled.div`
 export const BannersContainer = styled.section`
   display: none;
 
-  @media (min-width: 600px) {
+  @media (min-width: 900px) {
     display: flex;
     width: 50%;
     height: 100%;
