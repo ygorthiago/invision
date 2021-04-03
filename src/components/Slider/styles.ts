@@ -23,6 +23,11 @@ export const SliderNavigation = styled.div<{ isSelected: boolean }>`
   opacity: 0.5;
   cursor: pointer;
   margin: 10px;
+  transition: all 0.3;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   ${props =>
     props.isSelected && {
