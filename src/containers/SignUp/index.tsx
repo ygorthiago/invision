@@ -58,7 +58,7 @@ function SignUp() {
                 message: '* Enter the full name',
               },
               pattern: {
-                value: /\S+\S+\S+/,
+                value: /^([\w]{3,})+\s+([\w\s]{3,})+$/i,
                 message: '* Enter the full name',
               },
               maxLength: 100,
