@@ -7,6 +7,8 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { FormContainer } from './styles';
 import AuthContainer from '../../components/AuthContainer';
+import { mockedUser } from './mockedUser';
+import { useStores } from '../../stores';
 
 interface Inputs {
   userName: string;
@@ -19,8 +21,24 @@ function SignIn() {
     reValidateMode: 'onBlur',
   });
 
+  const { toastStore } = useStores();
+
   function onSubmit(data: Inputs) {
-    console.log(data);
+    const matchUsername = data.userName === mockedUser.username;
+    const matchPassword = data.password === mockedUser.password;
+
+    if (matchUsername && matchPassword) {
+      toastStore.addToast({
+        type: 'success',
+        title: 'Logged!',
+      });
+    } else {
+      toastStore.addToast({
+        type: 'error',
+        title: 'User not found!',
+        description: 'Check your credentials',
+      });
+    }
   }
 
   return (
