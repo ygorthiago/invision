@@ -1,12 +1,16 @@
 import React from 'react';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter, Redirect, Switch } from 'react-router-dom';
 import SignIn from '../containers/SignIn';
+import SignUp from '../containers/SignUp';
 
 function Routes() {
   return (
     <BrowserRouter>
-      <Route path="/" exact component={SignIn} />
-      {/* <Route path="/" exact component={SignUp} /> */}
+      <Switch>
+        <Route path="/" exact component={SignIn} />
+        <Route path="/signup" exact component={SignUp} />
+        <Route render={() => <Redirect to="/" />} />
+      </Switch>
     </BrowserRouter>
   );
 }
