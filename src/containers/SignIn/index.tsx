@@ -22,6 +22,7 @@ function SignIn() {
   function onSubmit(data: Inputs) {
     console.log(data);
   }
+
   return (
     <AuthContainer>
       <FormContainer>
@@ -33,15 +34,16 @@ function SignIn() {
             inputName="userName"
             error={!!errors.userName?.message}
             errorMessage={errors.userName?.message ?? ''}
+            maxLength={70}
             inputRef={register({
               required: {
                 value: true,
-                message: '* Este campo não pode ser vazio',
+                message: '* This field cannot be empty',
               },
               maxLength: 70,
               pattern: {
                 value: /^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
-                message: '* O email está incorreto',
+                message: '* Invalid email',
               },
             })}
           />
@@ -52,12 +54,13 @@ function SignIn() {
             type="password"
             error={!!errors.password?.message}
             errorMessage={errors.password?.message ?? ''}
+            maxLength={20}
             inputRef={register({
               required: {
                 value: true,
-                message: '* Este campo não pode ser vazio',
+                message: '* This field cannot be empty',
               },
-              maxLength: 16,
+              maxLength: 20,
             })}
           />
 

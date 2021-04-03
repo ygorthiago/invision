@@ -31,8 +31,8 @@ function SignUp() {
 
     toastStore.addToast({
       type: 'success',
-      title: 'Cadastro realizado!',
-      description: 'Faça seu sign in no Invision!',
+      title: 'Registration completed!',
+      description: 'Sign in to Invision',
     });
   }
 
@@ -47,18 +47,19 @@ function SignUp() {
             inputName="fullName"
             error={!!errors.fullName?.message}
             errorMessage={errors.fullName?.message ?? ''}
+            maxLength={100}
             inputRef={register({
               required: {
                 value: true,
-                message: '* Este campo não pode ser vazio',
+                message: '* This field cannot be empty',
               },
               minLength: {
                 value: 5,
-                message: '* Informe o nome completo',
+                message: '* Enter the full name',
               },
               pattern: {
                 value: /\S+\S+\S+/,
-                message: '* Informe o nome completo',
+                message: '* Enter the full name',
               },
               maxLength: 100,
             })}
@@ -69,15 +70,16 @@ function SignUp() {
             inputName="userName"
             error={!!errors.userName?.message}
             errorMessage={errors.userName?.message ?? ''}
+            maxLength={70}
             inputRef={register({
               required: {
                 value: true,
-                message: '* Este campo não pode ser vazio',
+                message: '* This field cannot be empty',
               },
               maxLength: 70,
               pattern: {
                 value: /^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
-                message: '* O email está incorreto',
+                message: '* Invalid email',
               },
             })}
           />
@@ -88,16 +90,17 @@ function SignUp() {
             type="password"
             error={!!errors.password?.message}
             errorMessage={errors.password?.message ?? ''}
+            maxLength={20}
             inputRef={register({
               required: {
                 value: true,
-                message: '* Este campo não pode ser vazio',
+                message: '* This field cannot be empty',
               },
               minLength: {
                 value: 6,
-                message: '* A senha não pode ter menos de 6 caracteres',
+                message: '* The password cannot be less than 6 characters',
               },
-              maxLength: 16,
+              maxLength: 20,
             })}
           />
 
