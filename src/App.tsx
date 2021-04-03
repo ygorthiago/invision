@@ -1,15 +1,17 @@
 import React from 'react';
+import ToastContainer from './components/ToastContainer';
 import Routes from './routes';
+import { StoresProvider } from './stores';
 
 import GlobalStyle from './styles/global';
 
 function App() {
   return (
-    <div>
+    <StoresProvider>
       <Routes />
-
+      <ToastContainer />
       <GlobalStyle />
-    </div>
+    </StoresProvider>
   );
 }
 
