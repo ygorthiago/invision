@@ -24,9 +24,7 @@ function SignUp() {
   const { toastStore } = useStores();
   const history = useHistory();
 
-  function onSubmit(data: Inputs) {
-    console.log(data);
-
+  function onSubmit() {
     history.push('/');
 
     toastStore.addToast({
