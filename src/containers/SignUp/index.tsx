@@ -126,8 +126,8 @@ function SignUp() {
 
             <span>
               By signing up, you agree to <b>Invision</b> <br />
-              <Link to="/">Terms of Conditions</Link> and{' '}
-              <Link to="/">Privacy Policy</Link>
+              <a href="#">Terms of Conditions</a> and{' '}
+              <a href="#">Privacy Policy</a>
             </span>
 
             <span>
