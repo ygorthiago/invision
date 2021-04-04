@@ -22,7 +22,7 @@ function Input({
 
   return (
     <>
-      <Container isErrored={!!error}>
+      <Container isErrored={!!error} data-testid="input-container">
         <input
           name={inputName}
           value={value}
@@ -35,7 +35,11 @@ function Input({
           <span className="contentName">{label}</span>
         </label>
       </Container>
-      {errorMessage && <InputErrorMessage>{errorMessage}</InputErrorMessage>}
+      {errorMessage && (
+        <InputErrorMessage data-testid="input-error-message">
+          {errorMessage}
+        </InputErrorMessage>
+      )}
     </>
   );
 }
