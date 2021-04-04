@@ -93,4 +93,16 @@ describe('SignUp Page', () => {
       );
     });
   });
+
+  it('should exist Slider in the document', () => {
+    const { getByTestId } = render(
+      <StoresProvider>
+        <SignUp />,
+      </StoresProvider>,
+    );
+
+    const sliderContainer = getByTestId('slider-container');
+
+    expect(sliderContainer).toBeInTheDocument();
+  });
 });

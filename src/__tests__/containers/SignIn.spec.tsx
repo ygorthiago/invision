@@ -82,4 +82,16 @@ describe('SignIn Page', () => {
       );
     });
   });
+
+  it('should exist Slider in the document', () => {
+    const { getByTestId } = render(
+      <StoresProvider>
+        <SignIn />,
+      </StoresProvider>,
+    );
+
+    const sliderContainer = getByTestId('slider-container');
+
+    expect(sliderContainer).toBeInTheDocument();
+  });
 });
