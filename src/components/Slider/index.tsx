@@ -34,7 +34,7 @@ function Slider() {
   }, [currentImageIndex]);
 
   return (
-    <SliderContainer>
+    <SliderContainer data-testid="slider-container">
       {SliderData.map((slide, index) => {
         const isCurrentImage = index === currentImageIndex;
 
