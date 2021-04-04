@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import Button from '../../components/Button';
 
@@ -21,6 +21,8 @@ function SignIn() {
     reValidateMode: 'onBlur',
   });
 
+  const history = useHistory();
+
   const { toastStore } = useStores();
 
   function onSubmit(data: Inputs) {
@@ -28,9 +30,12 @@ function SignIn() {
     const matchPassword = data.password === mockedUser.password;
 
     if (matchUsername && matchPassword) {
+      history.push('/home');
+
       toastStore.addToast({
         type: 'success',
         title: 'Logged!',
+        description: 'Welcome to Invision',
       });
     } else {
       toastStore.addToast({
@@ -48,6 +53,7 @@ function SignIn() {
         <h2>Welcome to Invision</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
+            data-testid="username-input"
             label="Username or email"
             inputName="userName"
             error={!!errors.userName?.message}
@@ -67,6 +73,7 @@ function SignIn() {
           />
 
           <Input
+            data-testid="password-input"
             label="Password"
             inputName="password"
             type="password"
@@ -87,7 +94,11 @@ function SignIn() {
           </div>
 
           <section>
-            <Button type="submit" className="submitButton">
+            <Button
+              data-testid="signin-button"
+              type="submit"
+              className="submitButton"
+            >
               Sign In
             </Button>
 
@@ -104,7 +115,7 @@ function SignIn() {
             </Button>
 
             <span>
-              New <b>Invision</b>? <Link to="signup">Create Account</Link>
+              New <b>Invision</b>? <Link to="/signup">Create Account</Link>
             </span>
           </section>
         </form>

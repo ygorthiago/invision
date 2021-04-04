@@ -27,7 +27,7 @@ function SignUp() {
   function onSubmit(data: Inputs) {
     console.log(data);
 
-    history.push('/signin');
+    history.push('/');
 
     toastStore.addToast({
       type: 'success',
@@ -44,6 +44,7 @@ function SignUp() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             label="Full name"
+            data-testid="fullName"
             inputName="fullName"
             error={!!errors.fullName?.message}
             errorMessage={errors.fullName?.message ?? ''}
@@ -67,6 +68,7 @@ function SignUp() {
 
           <Input
             label="Username or email"
+            data-testid="username"
             inputName="userName"
             error={!!errors.userName?.message}
             errorMessage={errors.userName?.message ?? ''}
@@ -86,6 +88,7 @@ function SignUp() {
 
           <Input
             label="Create password"
+            data-testid="password"
             inputName="password"
             type="password"
             error={!!errors.password?.message}
@@ -105,7 +108,7 @@ function SignUp() {
           />
 
           <section>
-            <Button type="submit" className="submitButton">
+            <Button type="submit" data-testid="signup" className="submitButton">
               Sign Up
             </Button>
 
