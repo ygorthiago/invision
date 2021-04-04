@@ -21,7 +21,8 @@
       "react",
       "react-hooks",
       "@typescript-eslint",
-      "prettier"
+      "prettier",
+      "jsx-a11y"
   ],
   "rules": {
     "react/jsx-props-no-spreading": "off",
@@ -52,7 +53,9 @@
     "react/require-default-props": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/prefer-default-export": "off",
-    "react/destructuring-assignment": "off"
+    "react/destructuring-assignment": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/anchor-has-content": "off"
   },
   "settings": {
     "import/resolver": {
