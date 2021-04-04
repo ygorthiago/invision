@@ -1,7 +1,7 @@
 # Invision
 ## 🎲 Running project
 
-- ### Clone or download this repository::
+- ### Clone or download this repository:
   ```bash
   $ git clone https://github.com/ygorthiago/invision.git
   ```
